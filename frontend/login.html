@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraudette AI</title>
+    <link rel="stylesheet" href="style_home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.ico">
+</head>
+<body>
+   <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⬡</span>
+      Fraudette<span class="accent">AI</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="login.html" class="nav-link">Sign Up</a>
+      <a href="demo.html" class="btn-nav">Try Demo →</a>
+    </div>
+
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="demo.html" class="btn-nav-mobile">Try Demo →</a>
+  </div>
+
+    <main class="main-div">
+        <div class="divison">
+            <h2 class="hero-title">Create an account</h2>
+        
+            <form>
+                <input class="input-email" required type="email" placeholder="email@domain.com">
+                <input class="input-pw" required type="password" placeholder="password">
+                <button class="button button-sign-up" type="submit">Sign up with email</button>
+            </form>
+
+            <div class="empty">or continue with</div>
+            <button class="button">
+                <img src="Image/google.png" alt="This is google image" width="40px">
+                Google
+            </button>
+
+            <p class="extra-note">By clicking continue, you agree to our <a href="#">Term of Service</a> and <a href="#">Privacy Policy</a></p>
+        </div>
+    </main>
+</body>
+
+<script src="login.js"></script>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fraudette AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style_home.css" />
+  <link rel="icon" href="icon.ico">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+ <nav class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⬡</span>
+      Fraudette<span class="accent">AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="login.html" class="nav-link">Sign Up</a>
+      <a href="demo.html" class="btn-nav">Try Demo →</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+  </div>
+
+  <!-- DEMO HERO -->
+  <section class="demo-hero">
+    <div class="grid-overlay"></div>
+    <div class="demo-hero-content">
+      <div class="hero-badge"><span class="pulse-dot"></span> Live AI Engine Active</div>
+      <h1 style="color: rgb(70, 71, 128)" >Transaction <span style="color: rgb(255, 213, 27)">Analyzer</span></h1>
+      <p>Fill in transaction details below and let the AI calculate the fraud risk in real time.</p>
+    </div>
+  </section>
+
+  <!-- DEMO SECTION -->
+  <section class="demo-section">
+    <div class="demo-layout">
+
+      <!-- FORM PANEL -->
+      <div class="form-panel">
+        <div class="panel-header">
+          <span class="logo">⬡</span>
+          <span class="panel-title">Transaction Input</span>
+        </div>
+
+        <div class="form-group">
+          <label style=" margin-top: 20px;">Transaction Amount (IDR)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">Rp</span>
+            <input type="number" id="amount" placeholder="e.g. 5000000" min="0" />
+          </div>
+          <span class="input-hint">Enter the transaction value in Indonesian Rupiah</span>
+        </div>
+
+        <div class="form-group">
+          <label>Merchant Category</label>
+          <select id="merchant">
+            <option value="">— Select category —</option>
+            <option value="ecommerce">E-Commerce</option>
+            <option value="food">Food & Beverage</option>
+            <option value="travel">Travel & Transport</option>
+            <option value="crypto">Cryptocurrency Exchange</option>
+            <option value="gambling">Online Gambling</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion & Apparel</option>
+            <option value="utilities">Utilities & Bills</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="unknown">Unknown / Unverified Merchant</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Payment Method</label>
+            <select id="payMethod">
+              <option value="">— Select —</option>
+              <option value="gopay">GoPay</option>
+              <option value="ovo">OVO</option>
+              <option value="dana">DANA</option>
+              <option value="bca">BCA Virtual Account</option>
+              <option value="mandiri">Mandiri</option>
+              <option value="card_new">New Credit Card</option>
+              <option value="card_saved">Saved Card</option>
+              <option value="crypto_wallet">Crypto Wallet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Transaction Time</label>
+            <select id="txTime">
+              <option value="day">Daytime (06:00–18:00)</option>
+              <option value="evening">Evening (18:00–23:00)</option>
+              <option value="midnight">Late Night (23:00–03:00)</option>
+              <option value="dawn">Dawn (03:00–06:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>User Location</label>
+            <select id="location">
+              <option value="same_city">Same city as registered</option>
+              <option value="diff_city">Different city</option>
+              <option value="diff_country">Overseas / VPN detected</option>
+              <option value="unknown">Unknown / Masked</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Device Status</label>
+            <select id="device">
+              <option value="known">Known / Trusted device</option>
+              <option value="new">New device (first login)</option>
+              <option value="rooted">Rooted / Jailbroken</option>
+              <option value="emulator">Emulator detected</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Account Age</label>
+            <select id="accountAge">
+              <option value="old">More than 1 year</option>
+              <option value="medium">3–12 months</option>
+              <option value="new">Less than 3 months</option>
+              <option value="new_day">Created today</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Transaction Frequency</label>
+            <select id="frequency">
+              <option value="normal">Normal (1–3 per day)</option>
+              <option value="high">High (4–10 per day)</option>
+              <option value="burst">Burst (10+ in 1 hour)</option>
+              <option value="first">First ever transaction</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Additional Flags <span class="optional">(optional)</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="chk_vpn"> VPN / Proxy detected
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="chk_multi"> Multiple failed attempts before this
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="chk_rapid"> Rapid successive transactions
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="chk_unverified"> Merchant not yet verified
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-analyze" id="analyzeBtn" onclick="analyzeTransaction()">
+          <span id="btnText">🔍 Analyze Transaction</span>
+          <span id="btnLoader" class="btn-loader hidden">Analyzing<span class="dots">...</span></span>
+        </button>
+
+        <div class="presets">
+          <span class="preset-label">Quick presets:</span>
+          <button onclick="loadPreset('safe')" class="preset-btn safe-btn">✓ Safe</button>
+          <button onclick="loadPreset('suspicious')" class="preset-btn warn-btn">⚠ Suspicious</button>
+          <button onclick="loadPreset('fraud')" class="preset-btn danger-btn">✕ Fraud</button>
+        </div>
+      </div>
+
+      <!-- RESULT PANEL -->
+      <div class="result-panel" id="resultPanel">
+        <div class="result-placeholder" id="resultPlaceholder">
+          <div class="placeholder-icon">🛡️</div>
+          <p>Fill in the transaction details and click <strong>Analyze</strong> to see the AI risk assessment.</p>
+          <div class="placeholder-features">
+            <span>✓ 40+ risk signals</span>
+            <span>✓ Explainable AI</span>
+            <span>✓ Real-time scoring</span>
+          </div>
+        </div>
+
+        <div class="result-content hidden" id="resultContent">
+          <!-- Score -->
+          <div class="score-section">
+            <div class="score-ring-wrap">
+              <svg class="score-ring" viewBox="0 0 120 120">
+                <circle class="ring-bg" cx="60" cy="60" r="50" />
+                <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="50"
+                  stroke-dasharray="314"
+                  stroke-dashoffset="314"
+                  transform="rotate(-90 60 60)" />
+              </svg>
+              <div class="score-center">
+                <span class="score-num" id="scoreNum">0</span>
+                <span class="score-max">/100</span>
+              </div>
+            </div>
+            <div class="score-info">
+              <div class="score-label" id="scoreLabel">—</div>
+              <div class="score-decision" id="scoreDecision">—</div>
+              <div class="score-confidence">
+                AI Confidence: <span id="scoreConf">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analysis Time -->
+          <div class="analysis-meta">
+            <span>⚡ Analyzed in <strong id="analysisTime">—</strong>ms</span>
+            <span>🧠 Model: FraudShield v2.1</span>
+            <span>☁ Alibaba Cloud PAI</span>
+          </div>
+
+          <!-- Risk Breakdown -->
+          <div class="breakdown-section">
+            <h3>Risk Factor Breakdown</h3>
+            <div id="riskFactors"></div>
+          </div>
+
+          <!-- Flagged Reasons -->
+          <div class="flags-section" id="flagsSection">
+            <h3>Flagged Indicators</h3>
+            <div id="flagsList"></div>
+          </div>
+
+          <!-- Recommendation -->
+          <div class="recommendation" id="recommendation">
+            <div class="rec-icon" id="recIcon">—</div>
+            <div class="rec-text">
+              <strong id="recTitle">—</strong>
+              <p id="recDesc">—</p>
+            </div>
+          </div>
+
+          <!-- Re-analyze -->
+          <button class="btn-reanalyze" onclick="resetAnalysis()">← Analyze Another</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- HISTORY TABLE -->
+    <div class="history-section">
+      <h3>Recent Analyses <span class="history-badge" id="historyCount">0</span></h3>
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Amount</th>
+              <th>Merchant</th>
+              <th>Payment</th>
+              <th>Risk Score</th>
+              <th>Decision</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody">
+            <tr class="empty-row"><td colspan="7">No analyses yet. Run your first transaction above!</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+      <span class="logo-icon">⬡</span>
+      Fraudette<span class="accent">AI</span>
+    </a>
+        <p>AI-powered fraud detection for Indonesia's digital payment ecosystem.</p>
+        <p class="footer-collab">Built for <strong>Paylabs Mini Hackathon 2026</strong></p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="demo.html">Demo</a>
+          <a href="about.html">About Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraudette AI</span>
+      <span>#LetsGrowStrongerTogether</span>
+    </div>
+  </footer>
+
+  <script src="demo.js"></script>
+</body>
+</html>

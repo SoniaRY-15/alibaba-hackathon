@@ -2,8 +2,6 @@
 
 **Built for:** Paylabs Mini Hackathon 2026
 
-Quick start
-
 ### Prerequisites
 - Node.js 16+ 
 - npm or yarn

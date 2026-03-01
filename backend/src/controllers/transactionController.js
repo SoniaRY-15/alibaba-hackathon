@@ -29,14 +29,7 @@ exports.analyzeTransaction = async (req, res) => {
     // Call Qwen AI untuk analyze
     const analysisResult = await AIService.analyzeTransaction(req.body);
 
-    if (analysisResult.success) {
-      res.status(200).json(analysisResult);
-    } else {
-      res.status(500).json({
-        success: false,
-        error: "AI analysis failed",
-      });
-    }
+    res.status(200).json(analysisResult);
   } catch (error) {
     console.error("Transaction Analysis Error:", error);
     res.status(500).json({
@@ -46,7 +39,7 @@ exports.analyzeTransaction = async (req, res) => {
   }
 };
 
-// GET TRANSACTION HISTORY
+// GET TRANSACTION HISTORY - TETAP SAMA ✅
 exports.getHistory = (req, res) => {
   try {
     res.status(200).json({
@@ -62,7 +55,7 @@ exports.getHistory = (req, res) => {
   }
 };
 
-// SAVE TRANSACTION
+// SAVE TRANSACTION - TETAP SAMA ✅
 exports.saveTransaction = (req, res) => {
   try {
     const { amount, merchant, payMethod, score, riskLevel } = req.body;

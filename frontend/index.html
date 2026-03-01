@@ -1,226 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fraudette AI</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fraudette AI</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style_home.css" />
-  <link rel="icon" href="icon.ico">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style_home.css" />
+    <link rel="icon" href="icon.ico" />
+    <script src="auth.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⬡</span>
+        Fraudette<span class="accent">AI</span>
+      </a>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <span class="logo-icon">⬡</span>
-      Fraudette<span class="accent">AI</span>
-    </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="login.html" class="nav-link">Sign Up</a>
+        <a href="demo.html" class="btn-nav">Try Demo →</a>
+      </div>
 
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About Us</a>
-      <a href="login.html" class="nav-link">Sign Up</a>
-      <a href="demo.html" class="btn-nav">Try Demo →</a>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="demo.html" class="btn-nav-mobile">Try Demo →</a>
     </div>
 
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="demo.html" class="btn-nav-mobile">Try Demo →</a>
-  </div>
-
-  <section class="hero">
-  
-
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span> Powered by AI + Alibaba Cloud
-      </div>
-
-      <h1 class="hero-title">
-        Detect Fraud.<br/>
-        <span class="hero-title-accent">Before It Happens.</span>
-      </h1>
-
-      <p class="hero-sub">
-        Real-time AI-powered transaction analysis for Indonesia's digital payment ecosystem.
-        Built for Paylabs Mini Hackathon. Integrated with Alibaba Cloud AI services.
-      </p>
-
-      <div class="hero-cta">
-        <a href="demo.html" class="btn-primary">Analyze a Transaction →</a>
-        <a href="about.html" class="btn-ghost">Learn More</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">98.7%</span>
-          <span class="stat-label">AI Detection Confidence</span>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span> Powered by AI + Alibaba Cloud
         </div>
 
-        <div class="stat-divider"></div>
+        <h1 class="hero-title">
+          Detect Fraud.<br />
+          <span class="hero-title-accent">Before It Happens.</span>
+        </h1>
 
-        <div class="stat">
-          <span class="stat-num">120ms</span>
-          <span class="stat-label">Avg. AI Response</span>
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="stat">
-          <span class="stat-num">500K+</span>
-          <span class="stat-label">Transactions Simulated</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section how-it-works">
-    <div class="section-label">PROCESS</div>
-   <h2 class="section-title">
-  How Fraudette AI <span style="color: rgb(255, 213, 27);">Works</span>
-</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step1">
-          <div class="step-num">01</div>
-          <div class="step-icon">📥</div>
-          <h3>Input Transaction</h3>
-          <p>
-            Submit transaction data including amount, merchant, location,
-            time, and payment method through our dashboard.
-          </p>
-        </div>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step2">
-          <div class="step-num">02</div>
-          <div class="step-icon">🧠</div>
-          <h3>AI Analysis</h3>
-          <p>
-            Transaction data is structured into JSON and analyzed using
-            Alibaba Cloud AI services for risk signals.
-          </p>
-        </div>
-      </div>
-      <div class="step-arrow">→</div>
-
-      <div class="step">
-        <div class="step3">
-          <div class="step-num">03</div>
-          <div class="step-icon">📊</div>
-          <h3>Risk Scoring</h3>
-          <p>
-            Receive an instant risk score from 0–100 with flagged indicators,
-            AI confidence level, and recommended action.
-          </p>
-        </div>
-      </div>
-
-      <div class="step-arrow">→</div>
-      
-      <div class="step">
-        <div class="step4">
-          <div class="step-num">04</div>
-          <div class="step-icon">🛡️</div>
-          <h3>Protect & Decide</h3>
-          <p>
-            Automatically block, flag, or approve transactions in real time.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section features">
-    <div class="section-label">CAPABILITIES</div>
-    <h2 class="section-title">Why Fraudette AI?</h2>
-
-    <div class="features-grid">
-
-      <div class="feature-card featured">
-        <div class="card-deco"></div>
-        <div class="card-deco"></div>
-        <div class="tag tag-white"><span class="tag-dot"></span> Live</div>
-        <div class="feature-icon">⚡</div>
-        <h3>Real-Time Detection</h3>
-        <p>AI-powered fraud reasoning with sub-200ms response time deployed on Alibaba Cloud infrastructure.</p>
-        <div class="feat-stats">
-          <div class="feat-stat"><span class="feat-n">98.7%</span><span class="feat-l">Accuracy</span></div>
-          <div class="feat-stat"><span class="feat-n">&lt;200ms</span><span class="feat-l">Response</span></div>
-          <div class="feat-stat"><span class="feat-n">500K+</span><span class="feat-l">Transactions</span></div>
-        </div>
-        <div class="wave"></div>
-      </div>
-
-      <div class="feature-card">
-        <div class="card-deco"></div>
-        <div class="card-deco"></div>
-        <div class="tag tag-ghost"><span class="tag-dot"></span> Integrated</div>
-        <div class="feature-icon">☁️</div>
-        <h3>Alibaba Cloud Integration</h3>
-        <p>Backend integrated with Alibaba Cloud AI services and scalable compute resources for enterprise-grade reliability.</p>
-        <div class="wave"></div>
-      </div>
-
-      <div class="feature-card">
-        <div class="card-deco"></div>
-        <div class="card-deco"></div>
-        <div class="tag tag-ghost"><span class="tag-dot"></span> Adaptive</div>
-        <div class="feature-icon">📈</div>
-        <h3>Adaptive Intelligence</h3>
-        <p>AI analyzes transaction behavior patterns and contextual anomalies dynamically — learning as threats evolve.</p>
-        <div class="wave"></div>
-      </div>
-
-      <div class="feature-card">
-        <div class="card-deco"></div>
-        <div class="card-deco"></div>
-        <div class="tag tag-white"><span class="tag-dot"></span> Transparent</div>
-        <div class="feature-icon">🔍</div>
-        <h3>Explainable Results</h3>
-        <p>Each risk score includes human-readable reasoning and flagged indicators — no black boxes, ever.</p>
-        <div class="wave"></div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-
-      <div class="footer-brand">
-        <span class="logo">⬡ Fraudette<span class="accent">AI</span></span>
-        <p>AI-powered fraud detection for Indonesia's digital payment ecosystem.</p>
-        <p class="footer-collab">
-          Built for <strong>Paylabs Mini Hackathon 2026</strong> in collaboration with Alibaba Cloud.
+        <p class="hero-sub">
+          Real-time AI-powered transaction analysis for Indonesia's digital
+          payment ecosystem. Built for Paylabs Mini Hackathon. Integrated with
+          Alibaba Cloud AI services.
         </p>
-      </div>
 
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <a href="index.html">Home</a>
-          <a href="demo.html">Demo</a>
-          <a href="about.html">About Us</a>
+        <div class="hero-cta">
+          <a href="demo.html" class="btn-primary">Analyze a Transaction →</a>
+          <a href="about.html" class="btn-ghost">Learn More</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">98.7%</span>
+            <span class="stat-label">AI Detection Confidence</span>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat">
+            <span class="stat-num">120ms</span>
+            <span class="stat-label">Avg. AI Response</span>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat">
+            <span class="stat-num">500K+</span>
+            <span class="stat-label">Transactions Simulated</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how-it-works">
+      <div class="section-label">PROCESS</div>
+      <h2 class="section-title">
+        How Fraudette AI <span style="color: rgb(255, 213, 27)">Works</span>
+      </h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step1">
+            <div class="step-num">01</div>
+            <div class="step-icon">📥</div>
+            <h3>Input Transaction</h3>
+            <p>
+              Submit transaction data including amount, merchant, location,
+              time, and payment method through our dashboard.
+            </p>
+          </div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step2">
+            <div class="step-num">02</div>
+            <div class="step-icon">🧠</div>
+            <h3>AI Analysis</h3>
+            <p>
+              Transaction data is structured into JSON and analyzed using
+              Alibaba Cloud AI services for risk signals.
+            </p>
+          </div>
+        </div>
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step3">
+            <div class="step-num">03</div>
+            <div class="step-icon">📊</div>
+            <h3>Risk Scoring</h3>
+            <p>
+              Receive an instant risk score from 0–100 with flagged indicators,
+              AI confidence level, and recommended action.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step4">
+            <div class="step-num">04</div>
+            <div class="step-icon">🛡️</div>
+            <h3>Protect & Decide</h3>
+            <p>
+              Automatically block, flag, or approve transactions in real time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features">
+      <div class="section-label">CAPABILITIES</div>
+      <h2 class="section-title">Why Fraudette AI?</h2>
+
+      <div class="features-grid">
+        <div class="feature-card featured">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <div class="tag tag-white"><span class="tag-dot"></span> Live</div>
+          <div class="feature-icon">⚡</div>
+          <h3>Real-Time Detection</h3>
+          <p>
+            AI-powered fraud reasoning with sub-200ms response time deployed on
+            Alibaba Cloud infrastructure.
+          </p>
+          <div class="feat-stats">
+            <div class="feat-stat">
+              <span class="feat-n">98.7%</span
+              ><span class="feat-l">Accuracy</span>
+            </div>
+            <div class="feat-stat">
+              <span class="feat-n">&lt;200ms</span
+              ><span class="feat-l">Response</span>
+            </div>
+            <div class="feat-stat">
+              <span class="feat-n">500K+</span
+              ><span class="feat-l">Transactions</span>
+            </div>
+          </div>
+          <div class="wave"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <div class="tag tag-ghost">
+            <span class="tag-dot"></span> Integrated
+          </div>
+          <div class="feature-icon">☁️</div>
+          <h3>Alibaba Cloud Integration</h3>
+          <p>
+            Backend integrated with Alibaba Cloud AI services and scalable
+            compute resources for enterprise-grade reliability.
+          </p>
+          <div class="wave"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <div class="tag tag-ghost">
+            <span class="tag-dot"></span> Adaptive
+          </div>
+          <div class="feature-icon">📈</div>
+          <h3>Adaptive Intelligence</h3>
+          <p>
+            AI analyzes transaction behavior patterns and contextual anomalies
+            dynamically — learning as threats evolve.
+          </p>
+          <div class="wave"></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <div class="tag tag-white">
+            <span class="tag-dot"></span> Transparent
+          </div>
+          <div class="feature-icon">🔍</div>
+          <h3>Explainable Results</h3>
+          <p>
+            Each risk score includes human-readable reasoning and flagged
+            indicators — no black boxes, ever.
+          </p>
+          <div class="wave"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo">⬡ Fraudette<span class="accent">AI</span></span>
+          <p>
+            AI-powered fraud detection for Indonesia's digital payment
+            ecosystem.
+          </p>
+          <p class="footer-collab">
+            Built for <strong>Paylabs Mini Hackathon 2026</strong> in
+            collaboration with Alibaba Cloud.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="demo.html">Demo</a>
+            <a href="about.html">About Us</a>
+          </div>
         </div>
       </div>
 
-    </div>
+      <div class="footer-bottom">
+        <span>© 2026 Fraudette AI</span>
+      </div>
+    </footer>
 
-    <div class="footer-bottom">
-      <span>© 2026 Fraudette AI</span>
-    </div>
-  </footer>
-
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
+</html>

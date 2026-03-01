@@ -1,161 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fraudette AI</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fraudette AI</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="about.css" />
-  <link rel="stylesheet" href="style_home.css" />
-  <link rel="icon" href="icon.ico">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="style_home.css" />
+    <link rel="icon" href="icon.ico" />
+    <script src="auth.js"></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⬡</span>
+        Fraudette<span class="accent">AI</span>
+      </a>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <span class="logo-icon">⬡</span>
-      Fraudette<span class="accent">AI</span>
-    </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="login.html" class="nav-link">Sign Up</a>
+        <a href="demo.html" class="btn-nav">Try Demo →</a>
+      </div>
 
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About Us</a>
-      <a href="login.html" class="nav-link">Sign Up</a>
-      <a href="demo.html" class="btn-nav">Try Demo →</a>
-    </div>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </nav>
 
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-  </nav>
+    <!-- HERO -->
+    <section class="demo-hero-pp">
+      <div class="demo-hero-content">
+        <h1>About Fraudette AI</h1>
+        <p class="p-color">
+          Building intelligent fraud detection systems for Indonesia’s evolving
+          digital payment ecosystem.
+        </p>
+      </div>
+    </section>
 
-  <!-- HERO -->
-  <section class="demo-hero-pp">
-    <div class="demo-hero-content">
-      <h1>About Fraudette AI</h1>
-      <p class="p-color">
-        Building intelligent fraud detection systems for Indonesia’s evolving digital payment ecosystem.
-      </p>
-    </div>
-  </section>
+    <!-- MISSION -->
+    <section class="section section-full">
+      <div class="section-label">MISSION</div>
+      <h2 class="section-title">Why We Built Fraudette AI</h2>
 
-  <!-- MISSION -->
-   <section class="section section-full">
-  <div class="section-label">MISSION</div>
-  <h2 class="section-title">Why We Built Fraudette AI</h2>
+      <div class="features-grid-full">
+        <div class="feature-card featured">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <!-- WAJIB ada 2 -->
 
-  <div class="features-grid-full">
+          <p class="section-sub">
+            Digital transactions in Indonesia are accelerating at an
+            unprecedented pace. As financial ecosystems expand, fraud tactics
+            evolve just as quickly, becoming more complex, automated, and harder
+            to detect.
+          </p>
 
-    <div class="feature-card featured">
-      <div class="card-deco"></div>
-      <div class="card-deco"></div> <!-- WAJIB ada 2 -->
+          <p>
+            Fraudette AI exists to restore trust in digital payments. We combine
+            advanced machine learning with explainable risk modeling to deliver
+            real-time fraud detection that is transparent, scalable, and
+            reliable. By analyzing behavioral patterns, transaction anomalies,
+            and contextual signals, our system generates a clear fraud risk
+            score from 0–100 — empowering payment providers to act instantly and
+            confidently.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- VISION -->
+    <section class="section">
+      <div class="section-label">VISION</div>
+      <h2 class="section-title">Our Vision</h2>
       <p class="section-sub">
-        Digital transactions in Indonesia are accelerating at an unprecedented pace.
-        As financial ecosystems expand, fraud tactics evolve just as quickly, becoming more complex, automated, and harder to detect.
+        To become a trusted AI-powered fraud detection layer for Southeast
+        Asia’s digital finance ecosystem.
       </p>
 
       <p>
-        Fraudette AI exists to restore trust in digital payments.
-        We combine advanced machine learning with explainable risk modeling to deliver real-time fraud detection that is transparent, scalable, and reliable.
-        By analyzing behavioral patterns, transaction anomalies, and contextual signals, our system generates a clear fraud risk score from 0–100 — empowering payment providers to act instantly and confidently.
+        We believe fraud prevention should be fast, adaptive, and explainable —
+        not a black box. Fraudette AI prioritizes clarity in risk scoring so
+        financial teams can understand why a transaction is flagged.
       </p>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- TECHNOLOGY -->
+    <section class="section">
+      <div class="section-label">TECHNOLOGY</div>
+      <h2 class="section-title">Technology Stack</h2>
 
-  
-  <!-- VISION -->
-  <section class="section">
-    <div class="section-label">VISION</div>
-    <h2 class="section-title">Our Vision</h2>
-    <p class="section-sub">
-      To become a trusted AI-powered fraud detection layer for Southeast Asia’s digital finance ecosystem.
-    </p>
+      <div class="features-grid">
+        <div class="feature-card featured">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <div class="feature-icon">🧠</div>
+          <h3>AI Risk Analysis</h3>
+          <p>
+            Fraudette AI structures transaction data into JSON format and
+            processes it using cloud-based AI services for contextual fraud
+            reasoning.
+          </p>
+        </div>
 
-    <p>
-      We believe fraud prevention should be fast, adaptive, and explainable — not a black box. 
-      Fraudette AI prioritizes clarity in risk scoring so financial teams can understand why a transaction is flagged.
-    </p>
-  </section>
-
-  <!-- TECHNOLOGY -->
-  <section class="section">
-    <div class="section-label">TECHNOLOGY</div>
-    <h2 class="section-title">Technology Stack</h2>
-
-    <div class="features-grid">
-
-      <div class="feature-card featured">
-        <div class="card-deco"></div>
-        <div class="card-deco"></div>
-        <div class="feature-icon">🧠</div>
-        <h3>AI Risk Analysis</h3>
-        <p>
-          Fraudette AI structures transaction data into JSON format and processes it using cloud-based AI services 
-          for contextual fraud reasoning.
-        </p>
+        <div class="feature-card">
+          <div class="card-deco"></div>
+          <div class="card-deco"></div>
+          <div class="feature-icon">☁️</div>
+          <h3>Cloud Infrastructure</h3>
+          <p>
+            Deployed on scalable cloud infrastructure designed to handle high
+            transaction throughput with low latency response times.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <div class="feature-card">
-        <div class="card-deco"></div>
-        <div class="card-deco"></div>
-        <div class="feature-icon">☁️</div>
-        <h3>Cloud Infrastructure</h3>
-        <p>
-          Deployed on scalable cloud infrastructure designed to handle high transaction throughput 
-          with low latency response times.
-        </p>
-      </div>
+    <!-- HACKATHON SECTION -->
+    <section class="section">
+      <div class="section-label">PROJECT</div>
+      <h2 class="section-title">Built for Paylabs Mini Hackathon 2026</h2>
+      <p class="section-sub">
+        Fraudette AI was developed as part of the Paylabs Mini Hackathon 2026
+        challenge, focusing on secure digital payment innovation.
+      </p>
 
-    </div>
-  </section>
+      <p>
+        The goal of this project is to demonstrate how AI can enhance payment
+        gateway security, reduce fraud losses, and improve trust in Indonesia’s
+        fintech ecosystem.
+      </p>
+    </section>
 
-  <!-- HACKATHON SECTION -->
-  <section class="section">
-    <div class="section-label">PROJECT</div>
-    <h2 class="section-title">Built for Paylabs Mini Hackathon 2026</h2>
-    <p class="section-sub">
-      Fraudette AI was developed as part of the Paylabs Mini Hackathon 2026 challenge, 
-      focusing on secure digital payment innovation.
-    </p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo">⬡ Fraudette<span class="accent">AI</span></span>
+          <p>
+            AI-powered fraud detection for Indonesia's digital payment
+            ecosystem.
+          </p>
+          <p class="footer-collab">
+            Built for <strong>Paylabs Mini Hackathon 2026</strong>.
+          </p>
+        </div>
 
-    <p>
-      The goal of this project is to demonstrate how AI can enhance payment gateway security, 
-      reduce fraud losses, and improve trust in Indonesia’s fintech ecosystem.
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-
-      <div class="footer-brand">
-        <span class="logo">⬡ Fraudette<span class="accent">AI</span></span>
-        <p>AI-powered fraud detection for Indonesia's digital payment ecosystem.</p>
-        <p class="footer-collab">
-          Built for <strong>Paylabs Mini Hackathon 2026</strong>.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <a href="index.html">Home</a>
-          <a href="demo.html">Demo</a>
-          <a href="about.html">About Us</a>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="demo.html">Demo</a>
+            <a href="about.html">About Us</a>
+          </div>
         </div>
       </div>
 
-    </div>
+      <div class="footer-bottom">
+        <span>© 2026 Fraudette AI</span>
+      </div>
+    </footer>
 
-    <div class="footer-bottom">
-      <span>© 2026 Fraudette AI</span>
-    </div>
-  </footer>
-
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>

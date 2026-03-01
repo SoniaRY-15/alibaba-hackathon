@@ -1,12 +1,9 @@
-// Check user authentication status and update navbar
 function checkAuthStatus() {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
 
   if (token && user) {
     updateNavbarLoggedIn();
-  } else {
-    updateNavbarLoggedOut();
   }
 }
 
@@ -37,21 +34,22 @@ function updateNavbarLoggedIn() {
   }
 }
 
-function updateNavbarLoggedOut() {
-  // Sign Up link is already there, nothing to do
-}
-
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 
-  API_CONFIG.fetch("POST", API_CONFIG.endpoints.auth.logout).catch((err) =>
-    console.error("Logout error:", err),
-  );
+  if (typeof API_CONFIG !== "undefined") {
+    API_CONFIG.fetch("POST", API_CONFIG.endpoints.auth.logout).catch((err) =>
+      console.error("Logout error:", err),
+    );
+  } else {
+    fetch("http://localhost:5000/api/auth/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }).catch((err) => console.error("Logout error:", err));
+  }
 
-  // Redirect to home
   window.location.href = "index.html";
 }
 
-// Run on page load
 document.addEventListener("DOMContentLoaded", checkAuthStatus);

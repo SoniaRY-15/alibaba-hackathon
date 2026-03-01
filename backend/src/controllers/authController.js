@@ -1,7 +1,7 @@
 const { generateToken } = require("../utils/tokenGenerator");
 const { isValidEmail } = require("../utils/helpers");
 
-// Mock database - ganti dengan database real nantinya
+// Mock database because we dont have time to set up real database, ehe sorry :sob:
 let users = [
   {
     id: 1,

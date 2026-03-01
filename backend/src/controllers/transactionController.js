@@ -1,10 +1,10 @@
 const AIService = require("../services/aiService");
 
-// Mock database for transactions
+// Mock database for transactions (again, oops)
 let transactions = [];
 let transactionHistory = [];
 
-// ANALYZE TRANSACTION - dengan Qwen AI
+// ANALYZE TRANSACTION - dengan Qwen AI!!! This was so hard wdym
 exports.analyzeTransaction = async (req, res) => {
   try {
     const {
@@ -39,7 +39,6 @@ exports.analyzeTransaction = async (req, res) => {
   }
 };
 
-// GET TRANSACTION HISTORY - TETAP SAMA ✅
 exports.getHistory = (req, res) => {
   try {
     res.status(200).json({
@@ -55,7 +54,6 @@ exports.getHistory = (req, res) => {
   }
 };
 
-// SAVE TRANSACTION - TETAP SAMA ✅
 exports.saveTransaction = (req, res) => {
   try {
     const { amount, merchant, payMethod, score, riskLevel } = req.body;

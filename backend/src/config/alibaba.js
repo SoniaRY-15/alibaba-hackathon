@@ -1,9 +1,8 @@
 require("dotenv").config();
 
-// Alibaba Cloud Configuration
 const ALIBABA_CONFIG = {
   apiKey: process.env.ALIBABA_API_KEY,
-  modelId: "qwen-turbo", // atau model yang dikasih
+  modelId: "qwen-plus", // or "qwen-turbo" based on what you have i suppose
   endpoint:
     "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation",
 };

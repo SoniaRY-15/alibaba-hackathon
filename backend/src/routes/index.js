@@ -9,7 +9,8 @@ router.use("/example", require("./exampleRoutes"));
 // Root endpoint
 router.get("/", (req, res) => {
   res.json({
-    message: "Welcome to Alibaba Hackathon, Fraudette Backend API",
+    message:
+      "Welcome to Fraudette backend API, made for alibaba hackathon project thing",
     version: "1.0.0",
     endpoints: {
       auth: {

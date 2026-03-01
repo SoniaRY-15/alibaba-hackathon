@@ -4,20 +4,16 @@ function checkAuthStatus() {
   const user = localStorage.getItem("user");
 
   if (token && user) {
-    // User is logged in - update navbar
     updateNavbarLoggedIn();
   } else {
-    // User is not logged in
     updateNavbarLoggedOut();
   }
 }
 
 function updateNavbarLoggedIn() {
-  // Find all "Sign Up" links in the navigation
   const signUpLinks = document.querySelectorAll('a[href="login.html"]');
 
   signUpLinks.forEach((link) => {
-    // Replace with Logout button
     const logoutBtn = document.createElement("a");
     logoutBtn.href = "#";
     logoutBtn.className = "nav-link logout-btn";
@@ -30,7 +26,6 @@ function updateNavbarLoggedIn() {
     link.replaceWith(logoutBtn);
   });
 
-  // Add user info display at the START of nav-links (left side)
   const navLinks = document.querySelector(".nav-links");
   if (navLinks) {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -38,7 +33,6 @@ function updateNavbarLoggedIn() {
     userEmail.className = "user-email";
     userEmail.textContent = `Welcome, ${user.email}`;
 
-    // Insert at the beginning (left side)
     navLinks.insertBefore(userEmail, navLinks.firstChild);
   }
 }
@@ -48,11 +42,9 @@ function updateNavbarLoggedOut() {
 }
 
 function logout() {
-  // Clear localStorage
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 
-  // Call backend logout endpoint (optional)
   fetch("http://localhost:5000/api/auth/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

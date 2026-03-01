@@ -1,7 +1,7 @@
 const OpenAI = require("openai");
 
 class AIService {
-  // Initialize OpenAI client with Alibaba's compatible endpoint
+  // Initialize OpenAI client with Alibaba compatible endpoint
   static initializeClient() {
     return new OpenAI({
       apiKey: process.env.ALIBABA_API_KEY,
@@ -11,14 +11,14 @@ class AIService {
     });
   }
 
-  // Call Qwen AI untuk analyze transaction
+  //Call Qwen AI
   static async analyzeTransaction(transactionData) {
     try {
       const openai = this.initializeClient();
       const prompt = this.buildPrompt(transactionData);
 
       const completion = await openai.chat.completions.create({
-        model: "qwen-plus", // or qwen-turbo
+        model: "qwen-plus", // or qwen-turbo, again tergantung punyanya apa
         messages: [
           {
             role: "system",
@@ -44,7 +44,7 @@ class AIService {
     }
   }
 
-  // Build prompt untuk AI
+  // Build prompt untuk AI (made the prompt with another AI, AI menjalankan AI is ironic)
   static buildPrompt(data) {
     return `You are a fraud detection expert. Analyze this transaction and provide a risk assessment.
 

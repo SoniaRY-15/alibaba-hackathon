@@ -1,4 +1,4 @@
-// Mock data - ganti dengan database nantinya
+// Mock data, again we didnt have time to make a real database lmaooo
 let examples = [
   { id: 1, name: "Example 1", description: "This is example 1" },
   { id: 2, name: "Example 2", description: "This is example 2" },

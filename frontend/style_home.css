@@ -1098,18 +1098,30 @@ body {
 }
 
 .demo-layout {
-   display: flex;
-  align-items: flex-start !important;
-  gap: 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
 
 }
 
 @media (max-width: 900px) {
   .demo-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column; /* stack ke bawah di HP */
+  }
+
+  .form-panel,
+  .result-panel {
+    width: 100%;
+    min-width: 0;
   }
 }
 
+.form-panel,
+.result-panel {
+  flex: 1;
+  margin-top: 0 !important;
+}
 /* FORM PANEL */
 .form-panel {
   background: linear-gradient(140deg, #f1f7ff 0%, #d7d2f8 50%, #9cb1d1 100%);
@@ -1119,18 +1131,12 @@ body {
   overflow: hidden;
   padding: 30px;
   opacity: 0;
-  margin: auto;
+  margin: 0;
   transform: translateY(28px) scale(0.97);
   animation: feat-popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   transition:
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s ease;
-}
-
-.form-panel,
-.result-panel {
-  flex: 1;
-  margin-top: 0 !important;
 }
 
 .panel-header {
@@ -1344,32 +1350,14 @@ select option {
 }
 
 /* RESULT PANEL */
-
-
-/* .result-panel {
+.result-panel {
   background: linear-gradient(140deg, #f1f7ff 0%, #cec7f8 50%, #e8f1ff 100%);
   box-shadow: 0 12px 30px rgba(100, 140, 220, 0.22);
   border-radius: 28px;
   padding: 36px 34px 32px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-start;
   opacity: 0;
-  transform: translateY(28px) scale(0.97);
-  animation: feat-popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  transition:
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.3s ease;
-} */
-
-.result-panel {
-  background: linear-gradient(140deg, #f1f7ff 0%, #cec7f8 50%, #e8f1ff 100%);
-  box-shadow: 0 12px 30px rgba(100, 140, 220, 0.22);
-  border-radius: 28px;
-  padding:36px 34px 32px;
-  overflow: hidden;
-  opacity: 0;
-  margin: auto;
+  margin: 0;
   transform: translateY(28px) scale(0.97);
   animation: feat-popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   transition:
@@ -1413,7 +1401,6 @@ select option {
 
 .result-content {
   padding: 2rem;
-  width: 100%;
   color: rgb(121, 100, 170);
   text-shadow: 0 0px 2px rgba(0, 0, 0, 0.2);
   font-weight: 600;
@@ -1425,6 +1412,7 @@ select option {
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+  
 }
 .score-ring-wrap {
   position: relative;
@@ -2018,7 +2006,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 nav {
@@ -2163,3 +2150,40 @@ nav {
   border-radius: 30px !important;
   box-shadow: 0 0px 5px rgba(255, 209, 27, 0.3) !important;
 }
+
+/* ================= FIX MOBILE OVERFLOW ================= */
+
+@media (max-width: 768px) {
+
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-analyze {
+    width: 100%;
+    margin: 1.2rem 0;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+  .demo-section {
+    padding: 1rem 1rem 3rem;
+  }
+}
+

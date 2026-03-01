@@ -567,12 +567,13 @@ body {
 /* =========== FEATURES =========== */
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 /* BASE CARD */
 .feature-card {
+  width: 100%;
   border-radius: 28px;
   padding: 36px 34px 32px;
   position: relative;
@@ -585,6 +586,7 @@ body {
   transition:
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s ease;
+  
 }
 .feature-card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -1084,9 +1086,8 @@ body {
 }
 
 .demo-section {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 2rem 2rem 5rem;
+  position: relative;
+  padding: 30px;
 }
 
 .demo-layout {
@@ -1105,6 +1106,9 @@ body {
 
 /* FORM PANEL */
 .form-panel {
+  display: grid;
+  width: 100%;
+  gap: 2rem;
   background: linear-gradient(140deg, #f1f7ff 0%, #d7d2f8 50%, #9cb1d1 100%);
   box-shadow: 0 12px 30px rgba(100, 140, 220, 0.22);
   border-radius: 28px;
@@ -1241,8 +1245,7 @@ select option {
 }
 
 .btn-analyze {
-  width: calc(100% - 3rem);
-  margin: 1.5rem;
+  width: 50%;
   color: #515283;
   background-color: rgba(255, 255, 255, 0.678);
   border: none;
@@ -2127,4 +2130,175 @@ nav {
   background-color: rgba(255, 209, 27, 0.1) !important;
   border-radius: 30px !important;
   box-shadow: 0 0px 5px rgba(255, 209, 27, 0.3) !important;
+}
+
+@media (max-width: 480px) {
+
+  .demo-section {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .demo-hero {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .demo-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-panel,
+  .result-panel {
+    border-radius: 20px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+   .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* jadi 1 kolom */
+    gap: 1.2rem;
+  }
+
+  .feature-card {
+    padding: 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.features-grid {
+  grid-template-columns: 1fr;
+}
+
+.feature-card {
+  border-radius: 30px;
+  padding: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ================= MOBILE FIX – FORM RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .form-panel {
+    grid-template-columns: 1fr; /* jadi 1 kolom */
+    padding: 24px 18px;
+  }
+
+  .form-panel .form-group,
+  .form-panel .form-row,
+  .form-panel .presets {
+    padding: 0; /* hilangkan padding samping berlebih */
+  }
+
+  .form-row {
+    grid-template-columns: 1fr; /* 1 kolom di HP */
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr; /* checkbox turun ke bawah */
+  }
+
+  .btn-analyze {
+    width: 100%;
+    margin: 1.2rem 0;
+  }
+
+  .panel-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .input-wrap {
+    flex-direction: row;
+  }
+
+  select,
+  input {
+    font-size: 0.85rem;
+  }
+
+}
+
+/* ================= FIX MOBILE OVERFLOW ================= */
+
+@media (max-width: 768px) {
+
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-analyze {
+    width: 100%;
+    margin: 1.2rem 0;
+  }
+
 }

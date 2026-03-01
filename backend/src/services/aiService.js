@@ -1,44 +1,40 @@
-const ALIBABA_CONFIG = require("../config/alibaba");
+const OpenAI = require("openai");
 
 class AIService {
+  // Initialize OpenAI client with Alibaba's compatible endpoint
+  static initializeClient() {
+    return new OpenAI({
+      apiKey: process.env.ALIBABA_API_KEY,
+      baseURL:
+        process.env.ALIBABA_BASEURL ||
+        "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+    });
+  }
+
   // Call Qwen AI untuk analyze transaction
   static async analyzeTransaction(transactionData) {
     try {
-      // Format data untuk AI prompt
+      const openai = this.initializeClient();
       const prompt = this.buildPrompt(transactionData);
 
-      const response = await fetch(ALIBABA_CONFIG.endpoint, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${ALIBABA_CONFIG.apiKey}`,
-          "Content-Type": "application/json",
-          "X-DashScope-SSE": "enable", // Untuk streaming
-        },
-        body: JSON.stringify({
-          model: "qwen-turbo",
-          messages: [
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-          temperature: 0.7,
-          top_p: 0.8,
-          max_tokens: 500,
-        }),
+      const completion = await openai.chat.completions.create({
+        model: "qwen-plus", // or qwen-turbo
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a fraud detection expert. Analyze transactions and provide risk assessments in JSON format.",
+          },
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+        temperature: 0.7,
+        top_p: 0.8,
       });
 
-      if (!response.ok) {
-        throw new Error(
-          `Alibaba API Error: ${response.status} ${response.statusText}`,
-        );
-      }
-
-      const result = await response.json();
-
-      // Parse AI response
-      const aiResponse =
-        result.output.text || result.output.choices[0].message.content;
+      const aiResponse = completion.choices[0].message.content;
       const analysisResult = this.parseAIResponse(aiResponse, transactionData);
 
       return analysisResult;
@@ -62,21 +58,31 @@ Transaction Details:
 - Account Age: ${data.accountAge}
 - Transaction Frequency: ${data.frequency}
 
-Based on these factors, provide:
-1. Risk Score (0-100)
-2. Risk Level (LOW RISK, MEDIUM RISK, HIGH RISK, CRITICAL RISK)
-3. Decision (APPROVED, REVIEW, FLAGGED, BLOCKED)
-4. Key Risk Factors (list the main concerns)
-5. Confidence Level (percentage)
-6. Recommendation (action to take)
+Based on these factors, provide a JSON response with:
+1. riskScore (number 0-100)
+2. riskLevel (string: LOW RISK, MEDIUM RISK, HIGH RISK, or CRITICAL RISK)
+3. decision (string: APPROVED, REVIEW, FLAGGED, or BLOCKED)
+4. keyRiskFactors (array of strings)
+5. confidence (string: percentage like "85%")
+6. recommendation (string: action to take)
 
-Format your response as JSON.`;
+Example JSON format:
+{
+  "riskScore": 45,
+  "riskLevel": "MEDIUM RISK",
+  "decision": "REVIEW",
+  "keyRiskFactors": ["High transaction amount", "New device"],
+  "confidence": "87%",
+  "recommendation": "Request additional verification"
+}
+
+Return ONLY the JSON object, no other text.`;
   }
 
   // Parse AI response menjadi format yang dibutuhkan frontend
   static parseAIResponse(aiText, originalData) {
     try {
-      // Try to extract JSON from AI response
+      // Extract JSON from AI response
       const jsonMatch = aiText.match(/\{[\s\S]*\}/);
       const parsed = jsonMatch
         ? JSON.parse(jsonMatch[0])
@@ -93,19 +99,17 @@ Format your response as JSON.`;
           confidence: parsed.confidence || "85%",
           recommendation:
             parsed.recommendation || "Review transaction before processing",
-          aiAnalysis: aiText, // Include raw AI response for debugging
         },
       };
     } catch (error) {
       console.error("Parse error:", error);
-      // Return default response if parsing fails
       return {
         success: true,
         data: {
           score: 50,
           riskLevel: "MEDIUM RISK",
           decision: "REVIEW",
-          breakdown: [],
+          breakdown: this.generateBreakdown(originalData, {}),
           flags: ["AI parsing error - manual review recommended"],
           confidence: "60%",
           recommendation: "Manual review required",
@@ -160,7 +164,7 @@ Format your response as JSON.`;
     ];
   }
 
-  // Helper functions untuk scoring (fallback jika AI tidak provide)
+  // Helper scoring functions
   static scoreAmount(amount) {
     const n = parseFloat(amount) || 0;
     if (n > 50_000_000) return 100;

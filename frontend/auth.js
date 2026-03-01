@@ -45,10 +45,9 @@ function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 
-  fetch("http://localhost:5000/api/auth/logout", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-  }).catch((err) => console.error("Logout error:", err));
+  API_CONFIG.fetch("POST", API_CONFIG.endpoints.auth.logout).catch((err) =>
+    console.error("Logout error:", err),
+  );
 
   // Redirect to home
   window.location.href = "index.html";

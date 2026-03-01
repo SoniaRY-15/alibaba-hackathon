@@ -1,4 +1,4 @@
-# Fraudette AI - A fraud detection system made for Alibaba x Paylabs hackathon
+# Fraudette AI - (A fraud detection system)
 
 
 

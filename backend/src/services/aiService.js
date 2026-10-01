@@ -7,7 +7,6 @@ class AIService {
       apiKey: process.env.ALIBABA_API_KEY,
       baseURL:
         process.env.ALIBABA_BASEURL ||
-        "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
     });
   }
 
